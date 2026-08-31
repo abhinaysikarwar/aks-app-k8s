@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/abhinaysikarwar/aks-app-backend:v3
+          image: ghcr.io/abhinaysikarwar/aks-app-backend:v1
           imagePullPolicy: IfNotPresent
 
           ports:
