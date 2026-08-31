@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: aks-app-frontend
+  namespace: aks-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: frontend
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/abhinaysikarwar/aks-app-frontend:v1
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 80
