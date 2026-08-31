@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: aks-app-backend
+  namespace: aks-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/abhinaysikarwar/aks-app-backend:v3
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8001
